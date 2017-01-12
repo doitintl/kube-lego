@@ -1,10 +1,9 @@
 ACCOUNT=gcr.io/topside-main
 APP_NAME=kube-lego
+IMG_VERSION=${IMAGE_VERSION}
 
 PACKAGE_NAME=github.com/jetstack/${APP_NAME}
 GO_VERSION=1.7.3
-
-DOCKER_IMAGE=${ACCOUNT}/${APP_NAME}
 
 BUILD_DIR=_build
 TEST_DIR=_test
@@ -79,7 +78,7 @@ docker_%:
 	docker rm $(CONTAINER_ID)
 
 image: docker_all version
-	docker build --build-arg VCS_REF=$(GIT_COMMIT) -t $(ACCOUNT)/$(APP_NAME):latest .
+	docker build --build-arg VCS_REF=$(GIT_COMMIT) -t $(ACCOUNT)/$(APP_NAME):$(IMG_VERSION) -f Dockerfile.$(IMG_VERSION) .
 	
 push: image
 	docker push $(ACCOUNT)/$(APP_NAME):latest
