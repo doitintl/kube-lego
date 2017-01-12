@@ -1,4 +1,4 @@
-FROM scratch
+FROM ubuntu:16.04
 ADD dist/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY _build/kube-lego /kube-lego
 COPY README.md /README.md

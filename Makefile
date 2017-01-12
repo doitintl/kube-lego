@@ -1,7 +1,7 @@
-ACCOUNT=jetstack
+ACCOUNT=gcr.io/topside-main
 APP_NAME=kube-lego
 
-PACKAGE_NAME=github.com/${ACCOUNT}/${APP_NAME}
+PACKAGE_NAME=github.com/jetstack/${APP_NAME}
 GO_VERSION=1.7.3
 
 DOCKER_IMAGE=${ACCOUNT}/${APP_NAME}
